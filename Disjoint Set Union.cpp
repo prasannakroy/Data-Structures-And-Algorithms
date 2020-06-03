@@ -17,7 +17,7 @@ void init(int n) {
 // 'root' function finds root of the disjoint set.
 int root(int a) {
     // a is node whose root we are finding.
-    return dsu[a] == a? a: dsu[a] = root(dsu[a]);
+    return dsu[a] == a ? a : dsu[a] = root(dsu[a]);
 }
 
 // join function connects two given nodes joining two different connnected commponents.
