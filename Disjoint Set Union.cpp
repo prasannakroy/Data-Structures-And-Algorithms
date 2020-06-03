@@ -3,7 +3,7 @@ int dsu[MX], SIZE[MX]; // MX is macro for maximum SIZE of array.
 // dsu array stores the number of parent node of element.
 // Initially each node is parent of itself.
 // SIZE array stores the SIZE of the connnected component.
-// Initially SIZE of each connected commponents is one.
+// Initially SIZE of each connected components is one.
 
 // 'init' function initializes required arrays 'dsu' and 'SIZE' with initial values.
 void init(int n) {
