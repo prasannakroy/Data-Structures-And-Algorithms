@@ -13,7 +13,7 @@ public:
     DisjointSet(int n) {
         // n is total number of nodes.
         dsu = new int[n];
-        size = new int[n];
+        SIZE = new int[n];
         for (int i = 1; i <= n; i++) {
             dsu[i] = i;
             SIZE[i] = 1;
