@@ -1,6 +1,5 @@
 template<typename t> 
 class DisjointSet {
-
 public:
     vector<t> dsu, SIZE;
     // dsu array stores the number of parent node of element.
@@ -10,35 +9,26 @@ public:
 
     // 'init' function initializes required arrays 'dsu' and 'SIZE' with initial values.
 
-    DisjointSet(int n) {
+    DisjointSet(t n) {
         // n is total number of nodes.
-        dsu = new int[n];
-        SIZE = new int[n];
-        for (int i = 1; i <= n; i++) {
-            dsu[i] = i;
-            SIZE[i] = 1;
-        }
+        dsu.resize(n + 1);
+        SIZE.assign(n + 1, 1);
+        iota(dsu.begin(), dsu.end(), 0);
     }
 
     // 'root' function finds root of the disjoint set.
-    int root(int a) {
+    t root(t a) {
         // a is node whose root we are finding.
         return dsu[a] == a? a: dsu[a] = root(dsu[a]);
     }
 
     // join function connects two given nodes joining two different connnected commponents.
-    void join(int a, int b) {
+    void join(t a, t b) {
         // a and b are nodes to be connnected.
         a = root(a);
         b = root(b);
         if (a == b) return; // a and b are already part of same connected component.
-        if (SIZE[a] < SIZE[b]) {
-            dsu[a] = b;
-            SIZE[b] += SIZE[a];
-        }
-        else {
-            dsu[b] = a;
-            SIZE[a] += SIZE[b];
-        }
+        if (SIZE[a] < SIZE[b]) dsu[a] = b, SIZE[b] += SIZE[a];
+        else dsu[b] = a, SIZE[a] += SIZE[b];
     }
 };
