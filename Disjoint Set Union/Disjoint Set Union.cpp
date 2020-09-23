@@ -1,8 +1,8 @@
+template<typename t> 
 class DisjointSet {
 
 public:
-    int *dsu = NULL;
-    int *SIZE = NULL;
+    vector<t> dsu, SIZE;
     // dsu array stores the number of parent node of element.
     // Initially each node is parent of itself.
     // SIZE array stores the SIZE of the connnected component.
@@ -13,7 +13,7 @@ public:
     DisjointSet(int n) {
         // n is total number of nodes.
         dsu = new int[n];
-        size = new int[n];
+        SIZE = new int[n];
         for (int i = 1; i <= n; i++) {
             dsu[i] = i;
             SIZE[i] = 1;
