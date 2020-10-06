@@ -17,7 +17,7 @@ using namespace std;
 
 // Binary Heap implementation
 
-// Min Heap
+// Max Heap
 template<typename t> 
 class MaxHeap {
 public:
@@ -89,6 +89,25 @@ public:
 
 void solve() { // Driver Function
     MaxHeap<int> tr;
+    int q; // No. of queries
+    cin >> q;
+    for (int i = 0; i < q; i++) {
+        string t; // Type of query
+        cin >> t;
+        if (t == "Insert") {
+            int val;
+            cin >> val;
+            tr.insert(val);
+        }
+        else if (t == "Delete") {
+            int idx; // Index in heap to be deleted
+            cin >> idx;
+            tr.remove(idx);
+        }
+        else {
+            tr.display();
+        }
+    }
 }
 
 signed main() {
