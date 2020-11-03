@@ -1,2 +1,4 @@
-# Data-Structures-And-Algorithms
-Basic data structures and algorithms for beginners with implementation in c++.
+# Data Structures And Algorithms
+
+> A repository for Data Structures & Algorithms I know, with there implementation, with documentation.
+
