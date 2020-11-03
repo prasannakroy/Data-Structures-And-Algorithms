@@ -36,7 +36,7 @@ public:
     void downHeapify(t idx) { // Balances root in heap
         t mx = idx;
 
-        // Find minimum index out of root and it's two children
+        // Find maximum index out of root and it's two children
         if (leftChild(idx) < sz and heap[leftChild(idx)] > heap[idx]) mx = leftChild(idx);
         if (rightChild(idx) < sz and heap[rightChild(idx)] > heap[mx]) mx = rightChild(idx);
 
@@ -74,9 +74,9 @@ public:
             return;
         }
 
-        heap[idx] = LLONG_MAX; // Change value of index to minimum value
+        heap[idx] = INF(t); // Change value of index to maximum value
         upHeapify(idx); // Balance the tree
-        remove(); // Now as the root is minimum, balance the tree
+        remove(); // Now as the root is maximum, balance the tree
     }
 
     void display() { // Print heap, level order traversal
