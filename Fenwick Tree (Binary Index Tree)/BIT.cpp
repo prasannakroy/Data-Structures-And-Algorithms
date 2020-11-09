@@ -11,6 +11,9 @@ using namespace std;
 #define __AcHiLlEs ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define __AnAkLuSmOs freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
 #define int long long
+#define span(a) a.begin(), a.end()
+#define sum(n) (((int)n * (int)(n + 1)) / 2)
+#define sumr(l, r) sum(r) - sum(l)
 
 template<typename t> // Class for Fenwick Tree
 class FenwickTree {
@@ -29,12 +32,11 @@ public:
     }
     
     int query(t r, t l = -1) { // function for range sum query
-        if (~l) { // if the sum includes zeroeth index
-            int sum(0); 
-            for (; r >= 0; r = (r & (r + 1)) - 1) sum += tr[r]; // compute sum
-            return sum; // return sum
-        }
-        else return query(r) - query(l - 1); // simple prefix sum logic
+        if (~l) return query(r) - query(l - 1); // simple prefix sum logic
+        // if the sum includes zeroeth index
+        int sm(0); 
+        for (; r >= 0; r = (r & (r + 1)) - 1) sm += tr[r]; // compute sum
+        return sm; // return sum
     }
 };
 
