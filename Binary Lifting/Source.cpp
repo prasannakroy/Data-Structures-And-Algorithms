@@ -29,10 +29,10 @@ public:
 		ed.resize(n + 1);
 		level.resize(n + 1);
 		parent.resize(n + 1, vector<t>(l + 1));
-		precomputeDFS(1, 1, 0);
+		precomputeDFS();
 	}
 
-	void precomputeDFS(t u, t p, t lvl) {
+	void precomputeDFS(t u = 1, t p = 1, t lvl = 0) {
 		bgn[u] = ++timer;
 		parent[u][0] = p;
 		level[u] = lvl;
