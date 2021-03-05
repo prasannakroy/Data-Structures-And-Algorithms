@@ -29,7 +29,7 @@ public:
         vis.resize(n + 1, 0); // Initialize vis array with 0 marking all nodes unvisited
     }
 
-    void join(t x, t y, t d) { // Join two nodes with an edge of weight d
+    void join(t x, t y, t d = 0) { // Join two nodes with an edge of weight d
         adj[x].push_back({y, d}); 
         adj[y].push_back({x, d});
     }
