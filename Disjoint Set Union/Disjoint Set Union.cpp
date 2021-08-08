@@ -28,7 +28,8 @@ public:
         a = root(a);
         b = root(b);
         if (a == b) return; // a and b are already part of same connected component.
-        if (SIZE[a] < SIZE[b]) dsu[a] = b, SIZE[b] += SIZE[a];
-        else dsu[b] = a, SIZE[a] += SIZE[b];
+        if (SIZE[a] < SIZE[b]) swap(a, b);
+        dsu[b] = a;
+        SIZE[a] += SIZE[b];
     }
 };
