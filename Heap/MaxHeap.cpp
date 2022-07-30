@@ -21,20 +21,20 @@ using namespace std;
 template<typename t> 
 class MaxHeap {
 public:
-    t sz;
+    int sz;
     vector<t> heap;
 
     MaxHeap() { sz = 0; } // Constructor. Assign size of heap 0
 
-    void upHeapify(t idx) { // Balances leaf element in heap
+    void upHeapify(int idx) { // Balances leaf element in heap
         if(idx and heap[parent(idx)] < heap[idx]) { // Compare value with it's parent
             swap(heap[parent(idx)], heap[idx]); // Swap if parent is greater than value
             upHeapify(parent(idx)); // Recursive Heapify call for parent
         }
     }
 
-    void downHeapify(t idx) { // Balances root in heap
-        t mx = idx;
+    void downHeapify(int idx) { // Balances root in heap
+        int mx = idx;
 
         // Find maximum index out of root and it's two children
         if (leftChild(idx) < sz and heap[leftChild(idx)] > heap[idx]) mx = leftChild(idx);
@@ -64,7 +64,7 @@ public:
         downHeapify(0); // Rebalance heap to update root
     }
 
-    void remove(t idx) { // Delete element from given idx
+    void remove(int idx) { // Delete element from given idx
         if (!sz) { // If heap is empty
             cout << "Empty.\n";
             return;
