@@ -74,7 +74,7 @@ public:
             return;
         }
 
-        heap[idx] = LLONG_MIN; // Change value of index to minimum value
+        heap[idx] = INFMIN(t); // Change value of index to minimum value
         upHeapify(idx); // Balance the tree
         remove(); // Now as the root is minimum, balance the tree
     }
