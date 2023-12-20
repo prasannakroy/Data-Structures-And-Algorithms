@@ -23,15 +23,15 @@ template<typename t>
 using maxpq = priority_queue<t>;
 
 void merge(vector<int> &a, int n, int st, int sz) {
-    int l1 = st;
-    int e1 = min(l1 + sz, n);
-    int l2 = min(l1 + sz, n);
-    int e2 = min(l2 + sz, n);
+    int s1 = st;
+    int e1 = min(s1 + sz, n);
+    int s2 = min(s1 + sz, n);
+    int e2 = min(s2 + sz, n);
 
     vector<int> aux;
 
     int i, j;
-    for (i = l1, j = l2; i < e1 and j < e2; ) {
+    for (i = s1, j = s2; i < e1 and j < e2; ) {
         if (a[i] < a[j]) {
             aux.push_back(a[i++]);
         } else {
@@ -43,8 +43,8 @@ void merge(vector<int> &a, int n, int st, int sz) {
     while (j < e2) 
         aux.push_back(a[j++]);
 
-    for (int i = l1; i < e2; i++) {
-        a[i] = aux[i - l1];
+    for (int i = s1; i < e2; i++) {
+        a[i] = aux[i - s1];
     }
 }
 
